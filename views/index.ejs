@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Películas</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  
+<body>
+  <h1>Películas disponibles</h1>
+
+
+  <form action="/buscar" method="GET">
+    <input type="text" name="q" placeholder="Buscar películas..." required>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <ul>
+    <% peliculas.forEach(pelicula => { %>
+      <li>
+        <h2><%= pelicula.Título %> (<%= pelicula.Año %>)</h2>
+        <p><strong>Categoría:</strong> <%= pelicula.Categoría %></p>
+        <p><strong>Actores:</strong> <%= pelicula.Actores.join(', ') %></p>
+        <p><strong>Sinopsis:</strong> <%= pelicula.Sinopsis %></p>
+        <img src="<%= pelicula.Imagen %>" alt="Imagen de la película" width="200">
+      </li>
+    <% }); %>
+  </ul>
+
+  <a href="/login">Iniciar sesión</a>
+  <a href="/register">Registrarse</a>
+</body>
+</html>
